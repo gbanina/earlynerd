@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
-use Auth;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class SettingsController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -25,8 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $tasks = Task::where("user_id", Auth::user()->id)->get();
-
-        return view('home')->with('tasks', $tasks);
+        return view('home');
     }
 }

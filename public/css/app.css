@@ -8,16 +8,16 @@
  */
 
 :root {
-  --blue: #3490dc;
-  --indigo: #6574cd;
-  --purple: #9561e2;
-  --pink: #f66d9b;
-  --red: #e3342f;
-  --orange: #f6993f;
-  --yellow: #ffed4a;
-  --green: #38c172;
-  --teal: #4dc0b5;
-  --cyan: #6cb2eb;
+  --blue: #3490dcb3;
+  --indigo: #6574cdb3;
+  --purple: #9561e2b3;
+  --pink: #f66d9bb3;
+  --red: #e3342fb3;
+  --orange: #f6993fb3;
+  --yellow: #ffed4ab3;
+  --green: #38c172b3;
+  --teal: #4dc0b5b3;
+  --cyan: #6cb2ebb3;
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
