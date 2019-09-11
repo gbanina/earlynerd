@@ -26,7 +26,21 @@ class HomeController extends Controller
     public function index()
     {
         $tasks = Task::where("user_id", Auth::user()->id)->get();
+        $weeks = array();
 
-        return view('home')->with('tasks', $tasks);
+        $first = ($tasks->first()->week);
+        $today = date("W");
+
+        for($i=$first;$i<=$today;$i++){
+            $weeks[$i] = null;
+        }
+
+        foreach($tasks as $task){
+            $weeks[$task->week][] = $task;
+        }
+
+        $weeks[36] = null;
+
+        return view('home')->with('weeks', $weeks);
     }
 }

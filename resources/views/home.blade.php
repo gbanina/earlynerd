@@ -30,20 +30,24 @@
                 <!-- Timeline -->
                 <ul class="timeline">
 
-                    @foreach($tasks as $task)
+                    @foreach($weeks as $tasks)
+                        @if($tasks != null)
+                            <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
 
-                        <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
-                            <div class="timeline-arrow"></div>
-                            <h2 class="h5 mb-0">{{$task->title}}</h2>
-                            <span class="small text-gray"><i class="fa fa-clock-o mr-1"></i>21 March, 2019</span>
-                            <p class="text-small mt-2 font-weight-light">{{$task->content}}</p>
+                                @foreach($tasks as $task)
+                                <div class="timeline-arrow"></div>
+                                <h2 class="h5 mb-0">{{$task->title}}</h2>
+                                <span class="small text-gray"><i class="fa fa-clock-o mr-1"></i>{{$task->date}}</span>
+                                <p class="text-small mt-2 font-weight-light">{{$task->content}}</p>
 
-                            <br>
-                            <h2 class="h5 mb-0">Title of section 1</h2>
-                            <span class="small text-gray"><i class="fa fa-clock-o mr-1"></i>21 March, 2019</span>
-                            <p class="text-small mt-2 font-weight-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque diam non nisi semper, et elementum lorem ornare. Maecenas placerat facilisis mollis. Duis sagittis ligula in sodales vehicula....</p>
-
-                        </li>
+                                <br>
+                                @endforeach
+                            </li>
+                        @else
+                            <li class="timeline-item rounded ml-3 p-4 shadow" style="background-color: #ff000066!important;">
+                                <h2 class="h5 mb-0">No Achievement's for this week  :(</h2>
+                            </li>
+                        @endif
 
                     @endforeach
 

@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Task extends Model
 {
     use SoftDeletes;
+
+    public function getDateAttribute() {
+        return \Carbon\Carbon::parse($this->created_at)->format('M d, Y');
+    }
 }
