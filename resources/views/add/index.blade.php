@@ -1,16 +1,10 @@
 @extends('layouts.main')
 
 @section('content')
-<style type="text/css">
-.add100-form{
-    padding-left: 20%;
-    padding-right: 20%;
-}
-
 
 </style>
         <div class="container-login100">
-            <div class="wrap-login100" style="width:1024px;padding: 10px;padding-top: 20px;">
+            <div class="wrap-login100 in-app">
 
         <div class="container">
 
@@ -28,8 +22,12 @@
                 <form class="add100-form validate-form" method="POST" action="{{ url('/add') }}">
                     @csrf
 
-                    <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                        <input class="input100" id="title" type="text" name="title" placeholder="Title" required autocomplete="title" >
+                    <div class="wrap-input100 validate-input" style="border-radius: 30px;display: inline-block;overflow: hidden;border:0px">
+                        <select class="input100" id="project_id" name="project_id" style="border:0;text-indent: 20px;" >
+                            @foreach(Auth::user()->projects()->get() as $project)
+                                <option value="{{$project->id}}">{{$project->title}}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">

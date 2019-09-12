@@ -28,18 +28,20 @@ class HomeController extends Controller
         $tasks = Task::where("user_id", Auth::user()->id)->get();
         $weeks = array();
 
-        $first = ($tasks->first()->week);
-        $today = date("W");
 
-        for($i=$first;$i<=$today;$i++){
-            $weeks[$i] = null;
+        if($tasks->first() != null){
+            $first = ($tasks->first()->week);
+            $today = date("W");
+
+            for($i=$first;$i<=$today;$i++){
+                $weeks[$i] = null;
+            }
+
+            foreach($tasks as $task){
+                $weeks[$task->week][] = $task;
+            }
         }
 
-        foreach($tasks as $task){
-            $weeks[$task->week][] = $task;
-        }
-
-        $weeks[36] = null;
 
         return view('home')->with('weeks', $weeks);
     }

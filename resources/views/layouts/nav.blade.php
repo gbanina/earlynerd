@@ -12,18 +12,9 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
+
                         @guest
-                        <!--
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        -->
+                                <!-- not authentication Links -->
                         @else
 
                             <li class="nav-item">
@@ -32,8 +23,8 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{url('/add')}}" class="nav-link">
-                                    Add Achievement
+                                <a href="{{url('/projects')}}" class="nav-link">
+                                    Add Project
                                 </a>
                             </li>
                             <li class="nav-item dropdown">

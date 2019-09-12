@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use App\Models\Task;
+use App\Models\Project;
 use Auth;
 
-class AddController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -26,46 +26,43 @@ class AddController extends Controller
          */
         public function index()
         {
-            return view('add.index');
+            $projects = Project::where("user_id", Auth::user()->id);
+            return view('projects.index')->with("projects", $projects);
         }
 
         public function create()
         {
             dd("create");
-            return view('add.index');
+            return view('projects.index');
         }
 
         public function store(Request $request)
         {
-            $task = new Task;
-            $task->user_id = Auth::user()->id;
-            $task->title = "";
-            $task->project_id = $request->input('project_id');
-            $task->content = $request->input('content');
-            $task->week = date("W");
-            $task->year = date("Y");
-            $task->save();
+            $project = new Project;
+            $project->user_id = Auth::user()->id;
+            $project->title = $request->input('title');
+            $project->save();
 
             return Redirect::to('/home');
         }
 
         public function show($id)
         {
-            return view('add.index');
+            return view('projects.index');
         }
 
         public function edit($id)
         {
-            return view('add.index');
+            return view('projects.index');
         }
 
         public function update(Request $request, $id)
         {
-            return view('add.index');
+            return view('projects.index');
         }
 
         public function destroy(Request $request, $id)
         {
-            return Redirect::to('/home');
+            return Redirect::to('/projects');
         }
 }

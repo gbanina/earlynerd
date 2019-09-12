@@ -254,7 +254,11 @@ body {
   justify-content: space-between;
   padding: 177px 130px 33px 95px;
 }
-
+.in-app{
+  width:1024px;
+  padding: 10px;
+  padding-top: 20px;
+}
 /*------------------------------------------------------------------
 [  ]*/
 .login100-pic {

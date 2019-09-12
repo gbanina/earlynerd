@@ -19,4 +19,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/add', 'AddController');
+Route::resource('/projects', 'ProjectController');
 Route::resource('/settings', 'SettingsController');
