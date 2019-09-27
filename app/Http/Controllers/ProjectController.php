@@ -43,7 +43,7 @@ class ProjectController extends Controller
             $project->title = $request->input('title');
             $project->save();
 
-            return Redirect::to('/home');
+            return Redirect::to('/projects');
         }
 
         public function show($id)
